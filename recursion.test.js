@@ -4,8 +4,10 @@ function division(number, dividedBy) {
     // Write you logic here.
     if (dividedBy === 0) {
         return 0;
+    } else if (number < dividedBy) {
+        return 0;
     } else {
-        return number / dividedBy;
+        return 1 + division(number - dividedBy, dividedBy);
     }
 }
 
