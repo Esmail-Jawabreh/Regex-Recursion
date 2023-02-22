@@ -7,17 +7,9 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s) {
     // Add your logic.
-    if (s.endsWith("A")) {
-        // Check if the string only contains uppercase and lowercase characters (no numbers and symbols)
-        if (/^[a-z A-Z]+$/.test(s)) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
+    var regex = /^[a-z A-Z]*A$/;
+    return regex.test(s);
+  }
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
@@ -25,7 +17,7 @@ which end with io (example@example.io) */
 
 function ioEmail(email) {
     // Add your logic.
-    const regex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]+.(io)$/; // regular expression to match email
+    const regex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]+.(io)$/; 
     return regex.test(email)
 }
 
@@ -38,8 +30,8 @@ required extention are jpg, jpeg and png.
 function imagesSearcher(text) {
     let arr = [];
     // Add your logic.
-    const pattern = /\b\w+\.(jpg|jpeg|png)\b/gi;
-    const matches = text.match(pattern);
+    const regex = /\b\w+\.(jpg|jpeg|png)\b/gi;
+    const matches = text.match(regex);
     if (matches) {
       return Array.from(new Set(matches));
     }
